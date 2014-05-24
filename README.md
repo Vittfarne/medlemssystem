@@ -16,6 +16,9 @@ Funktionalitet som kommer att finnas vid första publika släppning:
   * Kontroll av personnummer (kollar om personnumret skulle kunna finnas, inte om personen verkligen finns)
 
 
+SYSTEMET ÄR UTVECKLAT TILL PHP 5.5
+TIDIGARE VERSIONER KRÄVER JUST NU EN ÄNDRING AV EN KODRAD DÅ DE EJ STÖDJER EN FUNKTION!!!
+
 
 Funktionalitet som vi vill ha in:
 

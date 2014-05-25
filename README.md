@@ -10,7 +10,7 @@ Systemet kommer att vara tvåspråkigt från början men är lätt att utöka ti
 
 Vi vill gärna ha folk som bidrar till projektet!
 
-Funktionalitet som kommer att finnas vid första publika släppning:
+Prioriterad funktionalitet som bör byggas först:
   * Medlemsregistrering
   * Verifikation varje år
   * Kontroll av personnummer (kollar om personnumret skulle kunna finnas, inte om personen verkligen finns)

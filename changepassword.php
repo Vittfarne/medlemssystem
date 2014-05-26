@@ -43,7 +43,7 @@ If(Input::exists()){
 					'salt' => $salt
 					));
 
-				Session::flash('home', 'Password changed.');
+				Session::flash('home', $LANG['pwchanged']);
 				Redirect::to('index.php');
 			}
 		} else {
@@ -61,19 +61,19 @@ If(Input::exists()){
 
 <form action="" method="POST">
 	<div class="field">
-		<label for="password_current">Current password</label>
+		<label for="password_current"><?php echo $LANG['current']; ?> <?php echo $LANG['password_lower']; ?></label>
 		<input type="password" name="password_current" id="password_current">
 	</div>	
 	<div class="field">
-		<label for="password_new">New password</label>
+		<label for="password_new"><?php echo $LANG['new']; ?> <?php echo $LANG['password_lower']; ?></label>
 		<input type="password" name="password_new" id="password_new">
 	</div>
 	<div class="field">
-		<label for="password_new_again">Repeat new password</label>
+		<label for="password_new_again"><?php echo $LANG['repeatthe']; ?> <?php echo $LANG['password_lower']; ?></label>
 		<input type="password" name="password_new_again" id="password_new_again">
 	</div>
 
-	<input type="submit" value="Change">
+	<input type="submit" value="<?php echo $LANG['change_button']; ?>">
 	<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 </form>
 

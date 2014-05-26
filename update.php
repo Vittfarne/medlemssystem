@@ -1,6 +1,6 @@
 <?php
-$pagename = "Uppdatera";
 require_once 'core/init.php';
+$pagename = $LANG['update'];
 include_once 'includes/head.php';
 include_once 'includes/header.php';
 
@@ -30,7 +30,7 @@ if(Input::exists()) {
 					'name' => Input::get('name')
 					));
 
-				Session::flash('home', 'Update complete.');
+				Session::flash('home', $LANG['updatecompl']);
 				Redirect::to('index.php');
 			} catch(Exception $e){
 				die($e->getMessage());
@@ -49,10 +49,10 @@ if(Input::exists()) {
 
 <form action="" method="POST">
 	<div class="field">
-		<label for="name">Name</label>
+		<label for="name"><?php echo $LANG['name']; ?></label>
 		<input type="text" name="name" value="<?php echo escape($user->data()->name); ?>">
 		
-		<input type="submit" value="Update">
+		<input type="submit" value="<?php echo $LANG['update_button']; ?>">
 		<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 	</div>
 </form>

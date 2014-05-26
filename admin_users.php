@@ -13,7 +13,7 @@ if ($user->isLoggedIn()){
 	
 	?>
 
-	<p>Hi <a href="#"><?php echo escape($user->data()->username); ?></a>!</p>
+	<p><?php echo $LANG['hi']; ?> <a href="#"><?php echo escape($user->data()->username); ?></a>!</p>
 	
 	
 

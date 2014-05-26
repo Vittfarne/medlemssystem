@@ -10,15 +10,15 @@
 			<li><a href="">Documents</a></li>
 			<?php
 			if (!$user->isLoggedIn()){?>
-			<li><a href="login.php">Login</a></li>
-			<li><a href="register.php">Register</a></li>
+			<li><a href="login.php"><?php echo $LANG['login']; ?></a></li>
+			<li><a href="register.php"><?php echo $LANG['register']; ?></a></li>
 			<?php
 			} else {
 				if ($user->hasPermission('admin')){
 					echo '<li><a href="admin_index.php">Admin area</a></li>';
 				}
 				?>
-			<li><a href="logout.php">Logout</a>
+			<li><a href="logout.php"><?php echo $LANG['logout']; ?></a>
 </li>				<?php
 			}
 			?>

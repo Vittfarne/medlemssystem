@@ -1,6 +1,6 @@
 <?php
 require_once 'core/init.php';
-$pagename = "Register";
+$pagename = $LANG['register'];
 include_once 'includes/head.php';
 include_once 'includes/header.php';
 
@@ -58,7 +58,7 @@ if (Input::exists()) {
 					'group'		=>	1,
 					'phone'		=>	Input::get('phone')
 					));
-				Session::flash('home', 'You have been registered and can now log in!');
+				Session::flash('home', $LANG['youregistered']);
 				Redirect::to('index.php');
 
 			} catch(Exception $e){
@@ -79,24 +79,24 @@ if (Input::exists()) {
 			<input type="text" name="username" id="username" value="<?php echo escape(Input::get('username'));?>" autocomplete="off" placeholder="<?php echo $LANG['username'] ?>">
 		</div>
 		<div class="field">
-			<label for="email">Email:</label>
-			<input type="email" name="email" id="email" value="<?php echo escape(Input::get('email'));?>" autocomplete="off" placeholder="Email">
+			<label for="email"><?php echo $LANG['email']; ?>:</label>
+			<input type="email" name="email" id="email" value="<?php echo escape(Input::get('email'));?>" autocomplete="off" placeholder="<?php echo $LANG['email']; ?>">
 		</div>
 		<div class="field">
-			<label for="password"><?php echo $LANG['entera'] ?> Password</label>
-			<input type="password" name="password" id="password" placeholder="Password">
+			<label for="password"><?php echo $LANG['entera'] ?> <?php echo $LANG['password']; ?></label>
+			<input type="password" name="password" id="password" placeholder="<?php echo $LANG['password']; ?>">
 		</div>
 		<div class="field">
-			<label for="password_again">Enter the Password again</label>
-			<input type="password" name="password_again" id="password_again" placeholder="Password">
+			<label for="password_again"><?php echo $LANG['enterthe']; ?> <?php echo $LANG['password_lower']; ?> <?php echo $LANG['again']; ?></label>
+			<input type="password" name="password_again" id="password_again" placeholder="<?php echo $LANG['password']; ?>">
 		</div>
 		<div class="field">
-			<label for="name">Enter your name</label>
+			<label for="name"><?php echo $LANG['enteryour']; ?> <?php echo $LANG['name_lower']; ?></label>
 			<input type="text" name="name" id="name" value="<?php echo escape(Input::get('name'));?>" placeholder="Name">
 		</div>
 		<div class="field">
-			<label for="phone">Enter your phone number</label>
-			<input type="tel" name="phone" id="phone" value="<?php echo escape(Input::get('phone'));?>" autocomplete="off" placeholder="Phone">
+			<label for="phone"><?php echo $LANG['enteryour']; ?> <?php echo $LANG['phonenumber_lower']; ?></label>
+			<input type="tel" name="phone" id="phone" value="<?php echo escape(Input::get('phone'));?>" autocomplete="off" placeholder="<?php echo $LANG['phonnumber_lower']; ?>">
 		</div>
 		<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 		<input type="submit" value="Register">

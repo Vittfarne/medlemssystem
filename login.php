@@ -1,6 +1,6 @@
 <?php
-$pagename = "Login";
 require_once 'core/init.php';
+$pagename = $LANG['login'];
 include_once 'includes/head.php';
 include_once 'includes/header.php';
 
@@ -52,7 +52,7 @@ if(Input::exists()) {
 	<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 	<input type="submit" value="<?php echo $LANG['login']; ?>">
 </form>
-<p><i><a href="#">Reset password</a></i></p>
+<p><i><a href="#"><?php echo $LANG['resetpw']; ?></a></i></p>
 
 <?php
 include_once 'includes/bottom.php';

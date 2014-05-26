@@ -1,6 +1,6 @@
 <?php
-$pagename = "Startpage";
 require_once 'core/init.php';
+$pagename = $LANG['homepage'];
 include_once 'includes/head.php';
 include_once 'includes/header.php';
 
@@ -13,10 +13,10 @@ if (Session::exists('home')){
 if ($user->isLoggedIn()){
 	?>
 
-	<p>Hi <a href="#"><?php echo escape($user->data()->username); ?></a>!</p>
+	<p><?php echo $LANG['hi']; ?> <a href="#"><?php echo escape($user->data()->username); ?></a>!</p>
 
 	<ul>
-	<li><a href="logout.php">Logout</a></li>
+	<li><a href="logout.php"><?php echo $LANG['logout']; ?></a></li>
 	<li><a href="update.php">Update details</a></li>
 	<li><a href="changepassword.php">Change Password</a></li>
 </ul>

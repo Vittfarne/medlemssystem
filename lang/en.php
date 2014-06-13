@@ -29,3 +29,4 @@ $LANG['changebutton'] = "Change";
 $LANG['updatecompl'] = "Update complete.";
 $LANG['logout'] = "Log out";
 $LANG['homepage'] = "Home";
+$LANG['socialsecurity_number'] = "Social security number";

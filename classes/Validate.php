@@ -38,6 +38,24 @@ class Validate {
 								}
 
 							break;
+
+						case 'pnum':
+							if(!Pnum::check($value)) {
+							    $this->addError("{$item} is not a valid SSN.");
+							}
+
+						break;
+
+						case 'spar':
+							if(!Pnum::check($value)) {
+							    $this->addError("{$item} is not a valid SSN.");
+							    //SPAR CHECK NOT NEEDED! - LETS SAVE THE MONEY INSTEAD :)
+							} else {
+								//CONNECT AND CHECK SPAR ...
+							}
+
+						break;
+
 						case 'numeric':
 						
 							if (!is_numeric($value)) {

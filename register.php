@@ -98,6 +98,10 @@ if (Input::exists()) {
 			<label for="phone"><?php echo $LANG['enteryour']; ?> <?php echo $LANG['phonenumber_lower']; ?></label>
 			<input type="tel" name="phone" id="phone" value="<?php echo escape(Input::get('phone'));?>" autocomplete="off" placeholder="<?php echo $LANG['phonnumber_lower']; ?>">
 		</div>
+		<div class="field">
+			<label for="ssn"><?php echo $LANG['enteryour']; ?> <?php echo $LANG['socialsecurity_number']; ?></label>
+			<input type="number" name="ssn" id="ssn" value="<?php echo escape(Input::get('ssn'));?>" autocomplete="off" placeholder="<?php echo $LANG['socialsecurity_number']; ?>">
+		</div>
 		<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 		<input type="submit" value="Register">
 	</form>

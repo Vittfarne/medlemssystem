@@ -17,10 +17,10 @@ include ("lang/".$_SESSION["lang"].".php");
 
 $GLOBALS['config'] = array(
 	'mysql' => array(
-		'host'		=>	'', // Fyll i databasserver (T.ex ip-adress till servern, vet du inte denna, testa med 127.0.0.1 eller kontakt din webbhotellsleverantör)
-		'username'	=>	'', // Fyll i databasanvändarnamn (Har du ej detta, kontakta din webbhotellsleverantör)
+		'host'		=>	'127.0.0.1', // Fyll i databasserver (T.ex ip-adress till servern, vet du inte denna, testa med 127.0.0.1 eller kontakt din webbhotellsleverantör)
+		'username'	=>	'medlemssystem', // Fyll i databasanvändarnamn (Har du ej detta, kontakta din webbhotellsleverantör)
 		'password'	=>	'', // Fyll i databaslösenordet (Har du ej detta, kontakta din webbhotellsleverantör)
-		'db'		=>	'' // Fyll i databasnamnet (Har du ej detta, kontakta din webbhotellsleverantör)
+		'db'		=>	'medlemssystem' // Fyll i databasnamnet (Har du ej detta, kontakta din webbhotellsleverantör)
 	),
 	'remember' => array(
 		'cookie_name'	=>	'hash',

@@ -13,7 +13,7 @@ if ($user->isLoggedIn()){
 	
 	?>
 
-	<p>Hi <a href="#"><?php echo escape($user->data()->username); ?></a>!</p>
+	<p><?php echo $LANG['hi']; ?> <a href="profile.php?user=<?php echo escape($user->data()->username); ?>"><?php echo escape($user->data()->username); ?></a>!</p>
 	<p>User actions effecting you.</p>
 	<ul>
 	<li><a href="../logout.php">Logout</a></li>
@@ -23,7 +23,7 @@ if ($user->isLoggedIn()){
 	
 	<p>Actions on other users</p>
 	<ul>
-		<li><a href="users.php">Useractions</a></li>
+		<li><a href="admin_users.php">Useractions</a></li>
 		<li><a href="#"></a></li>
 		<li><a href="#"></a></li>
 	</ul>

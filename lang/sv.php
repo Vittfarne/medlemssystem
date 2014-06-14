@@ -1,5 +1,6 @@
 <?php
-
+//Transifex is being used for translation of all strings!
+//Head over to https://www.transifex.com/projects/p/medlemssystem/ to translate the project!
 
 $LANG['username_lower'] = "användarnamn";
 $LANG['username'] = "Användarnamn";

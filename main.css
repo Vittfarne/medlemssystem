@@ -1,64 +1,41 @@
-body {
-	
-}
-
 input {
-	border: 1px solid lightblue;
-}
+  border: 1px solid lightblue; }
 
 nav ul li {
-	display: inline;
-}
+  display: inline; }
 
 nav ul a {
-	color: black;
-	width: auto;
-	
-	padding: 10px;	
-}
+  color: black;
+  width: auto;
+  padding: 10px; }
 
-nav ul a:hover{
-	background: darkgrey;
-	
-
-}
+nav ul a:hover {
+  background: darkgray; }
 
 nav ul {
-	padding: 20px;
-	
-}
+  padding: 20px; }
 
 nav {
-}
+  border: 1px solid green; }
 
 .lang {
-	position: absolute;
-	top: 2px;
-	right: 15px;
-}
+  position: absolute;
+  top: 2px;
+  right: 15px; }
 
 .lang img {
-	max-width: 50px;
-}
+  max-width: 50px; }
 
 .clearfix:before,
 .clearfix:after {
-	content: " ";
-	display: block;
-}
+  content: " ";
+  display: block; }
 
 .clearfix {
-	*zoom: 1;
-}
+  *zoom: 1; }
 
 .clearfix:after {
-	clear:both;
-}
+  clear: both; }
 
 .centeralign {
-	text-align: center;
-}
-
-.logoarea {
-	
-}
+  text-align: center; }

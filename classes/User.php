@@ -83,6 +83,11 @@ class User{
 		return false;
 	}
 
+	public function countregusers(){
+		$users = $this->_db->selectcount('users');
+		return $users;
+	}
+
 	public function hasPermission($key){
 		$group = $this->_db->get('groups', array('id', '=', $this->data()->group));
 		if($group->count()){

@@ -13,7 +13,7 @@ if (Session::exists('home')){
 if ($user->isLoggedIn()){
 	?>
 
-	<p><?php echo $LANG['hi']; ?> <a href="#"><?php echo escape($user->data()->username); ?></a>!</p>
+	<p><?php echo $LANG['hi']; ?> <a href="profile.php?user=<?php echo escape($user->data()->username); ?>"><?php echo escape($user->data()->username); ?></a>!</p>
 
 	<ul>
 	<li><a href="logout.php"><?php echo $LANG['logout']; ?></a></li>
@@ -23,10 +23,6 @@ if ($user->isLoggedIn()){
 
 	<?php
 
-	if ($user->hasPermission('moderator')){
-		echo "Yes";
-	}
-
 } else {
 	echo '<p>You need to <a href="login.php">login</a> or <a href="register.php">register</a></p>';
 }
@@ -34,4 +30,3 @@ if ($user->isLoggedIn()){
 
 
 include_once 'includes/bottom.php';
-?>

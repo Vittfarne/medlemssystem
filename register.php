@@ -30,10 +30,33 @@ if (Input::exists()) {
 				'required'		=> true,
 				'matches'		=> 'password'
 			),
-			'name'			=>	array(
+			'firstname'			=>	array(
 				'required'		=> true,
 				'min'			=> 2,
 				'max'			=> 50
+			),
+			'lastname'			=>	array(
+				'required'		=> true,
+				'min'			=> 2,
+				'max'			=> 50
+			),
+			'address'			=>	array(
+				'required'		=> true,
+				'min'			=> 2,
+				'max'			=> 50
+			),
+			'zip'			=>	array(
+				'required'		=> true,
+				'min'			=> 5,
+				'max'			=> 5,
+				'numeric'		=> true
+			),
+			'ssn'			=>	array(
+				'required'		=> true,
+				'min'			=> 10,
+				'max'			=> 10,
+				'pnum'			=> true,
+				'unique'		=> 'users'
 			),
 			'phone' 		=>	array(
 				'required'		=> true,
@@ -49,15 +72,23 @@ if (Input::exists()) {
 			$salt = Hash::salt(32);
 			try {
 				$user->create(array(
-					'username'	=>	Input::get('username'),
-					'email'		=>	Input::get('email'),
-					'password'	=>	Hash::make(Input::get('password'), $salt),
-					'salt'		=>	$salt,
-					'name'		=>	Input::get('name'),
-					'joined'	=>	date('Y-m-d H:i:s'),
-					'group'		=>	1,
-					'phone'		=>	Input::get('phone')
+					'username'		=>	Input::get('username'),
+					'email'			=>	Input::get('email'),
+					'password'		=>	Hash::make(Input::get('password'), $salt),
+					'salt'			=>	$salt,
+					'firstname'		=>	Input::get('firstname'),
+					'lastname'		=>	Input::get('lastname'),
+					'address'		=>	Input::get('address'),
+					'zip'			=>	Input::get('zip'),
+					'city'			=>	Input::get('city'),
+					'ssn'			=>	Input::get('ssn'),
+					'steamid'		=>	Input::get('steamid'),
+					'phone'			=>	Input::get('phone'),
+					'joined'		=>	date('Y-m-d H:i:s'),
+					'group'			=>	1
 					));
+
+				//Send confirm email.
 				Session::flash('home', $LANG['youregistered']);
 				Redirect::to('index.php');
 
@@ -91,19 +122,45 @@ if (Input::exists()) {
 			<input type="password" name="password_again" id="password_again" placeholder="<?php echo $LANG['password']; ?>">
 		</div>
 		<div class="field">
-			<label for="name"><?php echo $LANG['enteryour']; ?> <?php echo $LANG['name_lower']; ?></label>
-			<input type="text" name="name" id="name" value="<?php echo escape(Input::get('name'));?>" placeholder="Name">
+			<label for="firstname"><?php echo $LANG['enteryour']; ?> <?php echo $LANG['firstname_lower']; ?></label>
+			<input type="text" name="firstname" id="firstname" value="<?php echo escape(Input::get('firstname'));?>" placeholder="<?php echo $LANG['firstname']; ?>">
 		</div>
 		<div class="field">
-			<label for="phone"><?php echo $LANG['enteryour']; ?> <?php echo $LANG['phonenumber_lower']; ?></label>
-			<input type="tel" name="phone" id="phone" value="<?php echo escape(Input::get('phone'));?>" autocomplete="off" placeholder="<?php echo $LANG['phonnumber_lower']; ?>">
+			<label for="lastname"><?php echo $LANG['enteryour']; ?> Lastname</label>
+			<input type="text" name="lastname" id="lastname" value="<?php echo escape(Input::get('lastname'));?>" placeholder="Lastname">
+		</div>
+		<div class="field">
+			<label for="gender"><?php echo $LANG['enteryour']; ?> Gender</label>
+			<select name="gender" id="gender">
+				<option value="m">Male</option>
+				<option value="f">Female</option>
+			</select>
+		</div>
+		<div class="field">
+			<label for="address"><?php echo $LANG['enteryour']; ?> address</label>
+			<input type="text" name="address" id="address" value="<?php echo escape(Input::get('address'));?>" placeholder="address">
+		</div>
+		<div class="field">
+			<label for="phone"><?php echo $LANG['enteryour']; ?> phone number</label>
+			<input type="tel" name="phone" id="phone" value="<?php echo escape(Input::get('phone'));?>" autocomplete="off" placeholder="Phone number">
 		</div>
 		<div class="field">
 			<label for="ssn"><?php echo $LANG['enteryour']; ?> <?php echo $LANG['socialsecurity_number']; ?></label>
 			<input type="number" name="ssn" id="ssn" value="<?php echo escape(Input::get('ssn'));?>" autocomplete="off" placeholder="<?php echo $LANG['socialsecurity_number']; ?>">
+			<br><i>Entered in the format of yymmddxxxx (9512124554)</i>
+		</div>
+		<div class="field">
+			<label for="steamid"><?php echo $LANG['enteryour']; ?> steamid</label>
+			<input type="text" name="steamid" id="steamid" value="<?php echo escape(Input::get('steamid'));?>" placeholder="steamid">
+			<br><a href="#" target="_blank"><i>Find out how to find your steamid?</i></a>
+		</div>
+		<div class="field">
+			<label for="agree">Accept <a href="#" target="_blank">agreement?</a></label>
+			<input type="checkbox" name="agree" id="agree">
 		</div>
 		<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 		<input type="submit" value="Register">
+		<input type="reset" value="Clear form">
 	</form>
 <?php
 include_once 'includes/bottom.php';

@@ -1,4 +1,6 @@
 <?php
+//Transifex is being used for translation of all strings!
+//Head over to https://www.transifex.com/projects/p/medlemssystem/ to translate the project!
 
 $LANG['username'] = "Username";
 $LANG['username_lower'] = "username";
@@ -17,9 +19,9 @@ $LANG['enterthe'] = "Enter the";
 $LANG['password_lower'] = "password";
 $LANG['email'] = "Email";
 $LANG['enteryour'] = "Enter your";
-$LANG['name_lower'] = "name";
+$LANG['firstname_lower'] = "firstname";
 $LANG['phonenumber_lower'] = "phone_number";
-$LANG['name'] = "Name";
+$LANG['firstname'] = "Firstname";
 $LANG['update_button'] = "Update";
 $LANG['pwchanged'] = "The password has been changed.";
 $LANG['current'] = "Current";

@@ -10,6 +10,7 @@ class DB {
 	private function __construct() {
 		try {
 			$this->_pdo = new PDO('mysql:host=' . Config::get('mysql/host') . ';dbname=' . Config::get('mysql/db'), Config::get('mysql/username'), Config::get('mysql/password'));
+    		$this->_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 			//$this->_pdo->exec("set names utf8");
 		} catch(PDOException $e) {
 			die ($e->getMessage());
@@ -68,6 +69,23 @@ class DB {
 
 	public function delete($table, $where) {
 		return $this->action('DELETE', $table, $where);
+	}
+
+	public function selectcount($table, $where = null){
+		$sql = "SELECT COUNT(*) FROM {$table}";
+		$this->_error = false;
+		if($this->_query = $this->_pdo->prepare($sql)) {
+			
+		}
+		if ($this->_query->execute()) {
+			$this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
+			$this->_count = $this->_query->rowCount();
+		} else {
+			$this->_error = true;
+		}
+		
+		return $this;
+		
 	}
 
 	public function insert($table, $fields = array()){

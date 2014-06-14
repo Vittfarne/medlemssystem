@@ -73,7 +73,7 @@ If(Input::exists()){
 		<input type="password" name="password_new_again" id="password_new_again">
 	</div>
 
-	<input type="submit" value="<?php echo $LANG['change_button']; ?>">
+	<input type="submit" value="Change">
 	<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 </form>
 

@@ -1,6 +1,6 @@
 <?php
 require_once 'core/init.php';
-$pagename = $LANG['update'];
+$pagename = "Update";
 include_once 'includes/head.php';
 include_once 'includes/header.php';
 
@@ -16,10 +16,15 @@ if(Input::exists()) {
 		$validate = new Validate();
 
 		$validation = $validate->check($_POST, array(
-			'name' => array (
+			'firstname' => array (
 				'required' => true,
 				'min' => 2,
 				'max' => 50
+				),
+			'lastname' => array (
+				'required'	=> true,
+				'min'	=> 2,
+				'max'	=> 50
 				)
 			));
 
@@ -27,7 +32,8 @@ if(Input::exists()) {
 			
 			try {
 				$user->update(array(
-					'name' => Input::get('name')
+					'firstname' => Input::get('firstname'),
+					'lastname'	=> Input::get('lastname')
 					));
 
 				Session::flash('home', $LANG['updatecompl']);
@@ -49,8 +55,12 @@ if(Input::exists()) {
 
 <form action="" method="POST">
 	<div class="field">
-		<label for="name"><?php echo $LANG['name']; ?></label>
-		<input type="text" name="name" value="<?php echo escape($user->data()->name); ?>">
+		<label for="firstname"><?php echo $LANG['firstname']; ?></label>
+		<input type="text" name="firstname" value="<?php echo escape($user->data()->firstname); ?>">
+	</div>
+	<div class="field">
+		<label for="lastname">Lastname</label>
+		<input type="text" name="lastname" value="<?php echo escape($user->data()->lastname); ?>">
 		
 		<input type="submit" value="<?php echo $LANG['update_button']; ?>">
 		<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">

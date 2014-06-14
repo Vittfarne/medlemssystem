@@ -5,7 +5,7 @@
 	<title>404</title>
 </head>
 <body>
-	Oops a 404 :(
-	<a href="index.php">Head home!</a>
+	<p>Oops a 404 :(</p>
+	<a href="./">Head home!</a>
 </body>
 </html>

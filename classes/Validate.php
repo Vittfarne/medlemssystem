@@ -52,6 +52,8 @@ class Validate {
 							    //SPAR CHECK NOT NEEDED! - LETS SAVE THE MONEY INSTEAD :)
 							} else {
 								//CONNECT AND CHECK SPAR ...
+
+								//SPAR IS A SWEDISH SERVICE FROM THE GOVERMENT TO CHECK IF A PERSON EXISTS AND HAVE ENTERED ALL THE INFO CORRECTLY AGAINST THEIR DATABASE
 							}
 
 						break;
@@ -79,6 +81,16 @@ class Validate {
 						
 						break;
 
+						case 'activeuser':
+
+								//Check if the user is active.
+								//$check = User::active($value);
+								if (1 != 2) {
+									$this->addError("Account not activated.");
+								}
+
+						break;
+
 						case 'unique':
 								$check = $this->_db->get($rule_value, array($item, '=', $value));
 								if ($check->count()) {
@@ -86,7 +98,7 @@ class Validate {
 								}
 
 
-							break;
+						break;
 					}
 
 				}

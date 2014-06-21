@@ -55,6 +55,21 @@ class User{
 		}		
 	}
 
+	public function active($user = null){
+			$field = (is_numeric($user)) ? 'id' : 'username';
+			$data = $this->_db->get('users', array($field, '=', $user));
+
+			if($data->count()){
+				$this->_data = $data->first();
+				if ($this->data()->active) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+
+	}
+
 	public function login ($username = null, $password = null, $remember = false) {
 		if(!$username && !$password && $this->exists()){
 			Session::put($this->_sessionName, $this->data()->id);

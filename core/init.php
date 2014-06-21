@@ -9,7 +9,7 @@ if (isset($_GET["lang"])){
 	} else {
 		$_SESSION["lang"] = "en";
 	}
-} elseif (!$_SESSION["lang"]){
+} elseif (!isset($_SESSION["lang"])){
 	$_SESSION["lang"] = "en";
 }
 include ("lang/".$_SESSION["lang"].".php");
